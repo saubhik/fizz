@@ -223,6 +223,22 @@ endif()
 
 get_filename_component(FIZZ_BASE_DIR ${CMAKE_SOURCE_DIR}/.. ABSOLUTE)
 
+SET(SHENANGO_LIBRARIES "")
+SET(SHENANGO_INCLUDE_DIRECTORIES "")
+
+# add shenango headers
+list(APPEND SHENANGO_INCLUDE_DIRECTORIES "/proj/quic-server-PG0/users/saubhik/caladan/inc")
+list(APPEND SHENANGO_INCLUDE_DIRECTORIES "/proj/quic-server-PG0/users/saubhik/caladan/bindings/cc")
+
+# link shenango libraries
+list(APPEND SHENANGO_LIBRARIES "/proj/quic-server-PG0/users/saubhik/caladan/bindings/cc/librt++.a")
+list(APPEND SHENANGO_LIBRARIES "/proj/quic-server-PG0/users/saubhik/caladan/libruntime.a")
+list(APPEND SHENANGO_LIBRARIES "/proj/quic-server-PG0/users/saubhik/caladan/libnet.a")
+list(APPEND SHENANGO_LIBRARIES "/proj/quic-server-PG0/users/saubhik/caladan/libbase.a")
+
+# need to set the linker script
+set(CMAKE_EXE_LINKER_FLAGS "-T /proj/quic-server-PG0/users/saubhik/caladan/base/base.ld")
+
 target_include_directories(
   fizz
   PUBLIC
