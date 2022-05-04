@@ -223,6 +223,13 @@ endif()
 
 get_filename_component(FIZZ_BASE_DIR ${CMAKE_SOURCE_DIR}/.. ABSOLUTE)
 
+# link shenango libraries
+SET(SHENANGO_LIBRARIES "")
+list(APPEND SHENANGO_LIBRARIES librt++.a)
+list(APPEND SHENANGO_LIBRARIES libruntime.a)
+list(APPEND SHENANGO_LIBRARIES libnet.a)
+list(APPEND SHENANGO_LIBRARIES libbase.a)
+
 target_include_directories(
   fizz
   PUBLIC
